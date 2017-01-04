@@ -26,6 +26,17 @@ set viminfo='20,\"50    		" read/write a .viminfo file, don't store more
                         		" than 50 lines of registers 
 
 "}}}
+" colors {{{
+
+"---------------------------------------------
+" Colors
+"---------------------------------------------
+
+colorscheme desert			" set the color scheme
+set hlsearch				" turn on search highlighting
+syntax on				" turn on syntax highlighting
+
+""}}}
 " Editing {{{
 
 "---------------------------------------------
@@ -54,19 +65,8 @@ set clipboard=unamedplus		" Allow copy/paste between windows and unix (visual on
 " Maps
 "---------------------------------------------
 
-
 map <F12> :set hlsearch!<CR>		" Map F12 to toggle search highlighting
 nnoremap <space> za			" Map SPACE in normal mode to fold
+nnoremap <silent> <Esc> :let @/=""<CR>  " clear the search string
 
 "}}}
-" colors {{{
-
-"---------------------------------------------
-" Colors
-"---------------------------------------------
-
-colorscheme desert			" set the color scheme
-set hlsearch				" turn on search highlighting
-syntax on				" turn on syntax highlighting
-
-""}}}
