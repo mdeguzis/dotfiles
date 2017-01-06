@@ -49,7 +49,7 @@ set history=50              		" keep 50 lines of command line history
 set number				" show line numbers
 set ruler               		" show the cursor position all the time
 set tabstop=8				" number of visual spaces after tab
-set softtabstop=4   			" number of spaces in tab when editing
+set softtabstop=8   			" number of spaces in tab when editing
 set formatoptions=cro			" turn off some auto formatting
 					" Check current options: 'set formatoptions?'
 					" See: http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
