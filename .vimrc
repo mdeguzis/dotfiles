@@ -66,9 +66,11 @@ set clipboard=unamedplus		" Allow copy/paste between windows and unix (visual on
 " Maps
 "---------------------------------------------
 
-map <F12> :set hlsearch!<CR>		" Map F12 to toggle search highlighting
+set pastetoggle=<F11>			" Toggle paste mode in insert mode
+map <F12> :set hlsearch!<CR>		" Toggle search highlighting
 nnoremap <space> za			" Map SPACE in normal mode to fold
-nnoremap <silent> <Esc> :let @/=""<CR>  " clear the search string
+nnoremap <silent> <Esc> :let @/=""<CR>  " clear the search string. 
+					" Esc works to exit insert/normal mode, and clear search in command mode
 nnoremap <C-c> +"y			" If vim/gvim has +clipboard, use a more intuitive map
 
 "}}}
