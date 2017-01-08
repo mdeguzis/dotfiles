@@ -54,7 +54,7 @@ set formatoptions=cro			" turn off some auto formatting
 					" Check current options: 'set formatoptions?'
 					" See: http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
 					" Remember, this will require then holding SHIFT for normal behavior
-set mouse+=a				" Set mouse behavior to not grab line numbers                                     │
+"set mouse+=a				" Set mouse behavior to not grab line numbers                                     │
 					" Remember, this will require then holding SHIFT for normal behavior
 					" Use SHIFT, then highlight the text, then CTRL+SHIFT+{C,V}
 set clipboard=unnamedplus		" Allow copy/paste between windows and unix (visual only)
