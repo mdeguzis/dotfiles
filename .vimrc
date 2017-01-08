@@ -80,9 +80,9 @@ nnoremap <space> za
 
 " clear the search string. 
 " Esc works to exit insert/normal mode, and clear search in command mode
-nnoremap <silent> <Esc> :let @/=''<CR>
+nnoremap <silent> <F3> :let @/=''<CR>
 
-" If vim/gvim has +clipboard, use a more intuitive map
-nnoremap <C-c> +"y
+" If vim/gvim has +clipboard, use a more intuitive map for clipboard
+nnoremap <C-c> +\"y
 
 "}}}
