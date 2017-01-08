@@ -57,7 +57,7 @@ set formatoptions=cro			" turn off some auto formatting
 set mouse+=a				" Set mouse behavior to not grab line numbers                                     │
 					" Remember, this will require then holding SHIFT for normal behavior
 					" Use SHIFT, then highlight the text, then CTRL+SHIFT+{C,V}
-set clipboard=unamedplus		" Allow copy/paste between windows and unix (visual only)
+set clipboard=unnamedplus		" Allow copy/paste between windows and unix (visual only)
 					" Use this with the mouse in GUI windows like Putty
 "}}}
 " Maps {{{
@@ -80,7 +80,7 @@ nnoremap <space> za
 
 " clear the search string. 
 " Esc works to exit insert/normal mode, and clear search in command mode
-nnoremap <silent> <Esc> :let @/=""<CR>
+nnoremap <silent> <Esc> :let @/=''<CR>
 
 " If vim/gvim has +clipboard, use a more intuitive map
 nnoremap <C-c> +"y
