@@ -11,9 +11,9 @@
 " Main settings
 "---------------------------------------------
 
+set nocompatible        		" Use Vim defaults (much better!)
 set noeb vb t_vb=			" Disable annoying system bell
 set foldmethod=marker			" fold sections with markers
-set nocompatible        		" Use Vim defaults (much better!)
 set bs=indent,eol,start 		" allow backspacing over everything in insert mode
 set ai					" always set autoindenting on
 
