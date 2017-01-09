@@ -65,6 +65,9 @@ set clipboard=unnamedplus		" Allow copy/paste between windows and unix (visual o
 " Note - put comments above commands here
 " Because of the syntax, you may end up with <TAB> in your commands
 
+" Toggle line numbers (mainly just for pasting)
+nnoremap <F2> :set nonumber!<CR>
+
 " Toggle paste mode in insert mode
 set pastetoggle=<F11>
 
