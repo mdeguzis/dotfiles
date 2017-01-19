@@ -11,20 +11,20 @@
 " Main settings
 "---------------------------------------------
 
-set nocompatible        		" Use Vim defaults (much better!)
+set nocompatible        	" Use Vim defaults (much better!)
 set noeb vb t_vb=			" Disable annoying system bell
-set foldmethod=marker			" fold sections with markers
-set bs=indent,eol,start 		" allow backspacing over everything in insert mode
-set ai					" always set autoindenting on
+set foldmethod=marker		" fold sections with markers
+set bs=indent,eol,start 	" allow backspacing over everything in insert mode
+set ai						" always set autoindenting on
 
-set backup				" keep a backup file and set paths
+set backup					" keep a backup file and set paths
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
-set viminfo='20,\"50    		" read/write a .viminfo file, don't store more
-                        		" than 50 lines of registers 
+set viminfo='20,\"50    	" read/write a .viminfo file, don't store more
+                        	" than 50 lines of registers 
 
 "}}}
 " colors {{{
@@ -35,7 +35,7 @@ set viminfo='20,\"50    		" read/write a .viminfo file, don't store more
 
 colorscheme desert			" set the color scheme
 set hlsearch				" turn on search highlighting
-syntax on				" turn on syntax highlighting
+syntax on					" turn on syntax highlighting
 
 ""}}}
 " Editing {{{
@@ -44,18 +44,18 @@ syntax on				" turn on syntax highlighting
 " Editing
 "---------------------------------------------
 
-set nowrap				" do not wrap lines
-set history=50              		" keep 50 lines of command line history
-set number				" show line numbers
-set ruler               		" show the cursor position all the time
+set nowrap					" do not wrap lines
+set history=50              " keep 50 lines of command line history
+set number					" show line numbers
+set ruler               	" show the cursor position all the time
 set tabstop=4				" number of visual spaces after tab
-set shiftwidth=4            		" when indenting with '>', use 4 spaces width
-set softtabstop=4   			" number of spaces in tab when editing
+set shiftwidth=4            " when indenting with '>', use 4 spaces width
+set softtabstop=4   		" number of spaces in tab when editing
 "set mouse+=a				" Set mouse behavior to not grab line numbers                                     │
-					" Remember, this will require then holding SHIFT for normal behavior
-					" Use SHIFT, then highlight the text, then CTRL+SHIFT+{C,V}
-set clipboard=unnamedplus		" Allow copy/paste between windows and unix (visual only)
-					" Use this with the mouse in GUI windows like Putty
+							" Remember, this will require then holding SHIFT for normal behavior
+							" Use SHIFT, then highlight the text, then CTRL+SHIFT+{C,V}
+set clipboard=unnamedplus	" Allow copy/paste between windows and unix (visual only)
+							" Use this with the mouse in GUI windows like Putty
 "}}}
 " Maps {{{
 
