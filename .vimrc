@@ -70,7 +70,7 @@ set clipboard=unnamedplus	" Allow copy/paste between windows and unix (visual on
 nnoremap <F2> :set nonumber!<CR>
 
 " Toggle paste mode in insert mode
-set pastetoggle=<F11>
+set pastetoggle=<F10>
 
 " Toggle search highlighting
 map <F12> :set hlsearch!<CR>
@@ -80,7 +80,7 @@ nnoremap <space> za
 
 " clear the search string. 
 " Esc works to exit insert/normal mode, and clear search in command mode
-nnoremap <silent> <F3> :let @/=''<CR>
+nnoremap <silent> <F12> :let @/=''<CR>
 
 " If vim/gvim has +clipboard, use a more intuitive map for clipboard
 nnoremap <C-c> +\"y
