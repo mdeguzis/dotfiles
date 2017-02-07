@@ -13,3 +13,7 @@ export TERM=xterm-256color
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+
+# Set an alias for grep color option
+# For 'less', pass -R to it
+alias grepc="grep --color=always"
