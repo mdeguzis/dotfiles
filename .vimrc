@@ -48,6 +48,7 @@ set nowrap					" do not wrap lines
 set history=50              " keep 50 lines of command line history
 set number					" show line numbers
 set ruler               	" show the cursor position all the time
+set expandtab!			" disable tab key inserting spaces, not tab sequence
 set tabstop=4				" number of visual spaces after tab
 set shiftwidth=4            " when indenting with '>', use 4 spaces width
 set softtabstop=4   		" number of spaces in tab when editing
