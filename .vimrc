@@ -48,7 +48,7 @@ set nowrap					" do not wrap lines
 set history=50              " keep 50 lines of command line history
 set number					" show line numbers
 set ruler               	" show the cursor position all the time
-set expandtab!			" disable tab key inserting spaces, not tab sequence
+set expandtab!				" disable tab key inserting spaces, not tab sequence
 set tabstop=4				" number of visual spaces after tab
 set shiftwidth=4            " when indenting with '>', use 4 spaces width
 set softtabstop=4   		" number of spaces in tab when editing
@@ -57,6 +57,14 @@ set softtabstop=4   		" number of spaces in tab when editing
 							" Use SHIFT, then highlight the text, then CTRL+SHIFT+{C,V}
 set clipboard=unnamedplus	" Allow copy/paste between windows and unix (visual only)
 							" Use this with the mouse in GUI windows like Putty
+"}}}
+" Commands {{{
+
+"---------------------------------------------
+" Commmands
+"---------------------------------------------
+
+command! formatjson %!python -m json.tool  
 "}}}
 " Maps {{{
 
