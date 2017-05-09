@@ -64,7 +64,8 @@ set clipboard=unnamedplus	" Allow copy/paste between windows and unix (visual on
 " Commmands
 "---------------------------------------------
 
-command! formatjson %!python -m json.tool  
+" Format JSON in vim to expand out
+command! FormatJSON %!python -m json.tool
 "}}}
 " Maps {{{
 
