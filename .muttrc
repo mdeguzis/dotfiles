@@ -1,0 +1,29 @@
+# NOTE:
+# Remember to replace capitalized placeholders below before use
+# This is setup for IMAP use
+
+set realname="FULL NAME"
+set from=USERNAME@MAIL_HOST
+
+# Automatically log in to this mailbox at startup
+set spoolfile=imap://USERNAME@imap.MAIL_HOST/"
+
+# # Define the = shortcut, and the entry point for the folder browser (c?)
+set folder="imap://USERNAME@imap.MAIL_HOST/"
+set record="=Sent Items"
+set postponed="=Drafts"
+
+# Automatically poll subscribed mailboxes for new mail
+set imap_check_subscribed
+
+# Reduce polling frequency to a sane level
+set mail_check=30
+
+# keep a cache of headers for faster loading
+set header_cache=~/.mutt/hcache/
+
+# use ~/.mailcap settings to view html mail
+auto_view text/html
+
+# Reduce timeout and keepalive so Exchange CAS doesn't reap our connection
+set timeout=15
