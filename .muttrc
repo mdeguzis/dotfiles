@@ -1,15 +1,35 @@
-# NOTE:
-# Remember to replace capitalized placeholders below before use
-# This is setup for IMAP use
+# Set config for server
+set hostname="geisinger.edu"
+set connect_timeout=30
+set realname="Michael T. DeGuzis"
+set from=mtdeguzis@geisinger.edu
 
-set realname="FULL NAME"
-set from=USERNAME@MAIL_HOST
+
+# Bind some keys
+bind index - collapse-thread
+bind index _ collapse-all
+
+#
+# Sorting
+#
+
+# Sort mail by thread
+set sort=threads
+# showing mbox list default to newest first
+set sort_browser=reverse-date
+# showing threads with youngest message last
+set sort_aux=reverse-last-date-received
+# Collapse theads by default
+folder-hook . "exec collapse-all"
+
+# Sig
+set signature="~/.signature"
 
 # Automatically log in to this mailbox at startup
-set spoolfile=imap://USERNAME@imap.MAIL_HOST/"
+set spoolfile="imap://mtdeguzis@imap.geisinger.edu/"
 
-# # Define the = shortcut, and the entry point for the folder browser (c?)
-set folder="imap://USERNAME@imap.MAIL_HOST/"
+# Define the = shortcut, and the entry point for the folder browser (c?)
+set folder="imap://mtdeguzis@imap.geisinger.edu/"
 set record="=Sent Items"
 set postponed="=Drafts"
 
@@ -27,3 +47,4 @@ auto_view text/html
 
 # Reduce timeout and keepalive so Exchange CAS doesn't reap our connection
 set timeout=15
+set imap_keepalive=30
