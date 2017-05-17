@@ -1,0 +1,14 @@
+[user]
+    name = USERNAME
+    email = EMAIL@gmail.com
+[merge]
+    tool = kdiff3
+
+[sendemail]
+from = FNAME LNAME <USER@gmail.com>
+smtpserver = smtp.gmail.com
+smtpuser = USERNAME@gmail.com
+smtpencryption = tls
+smtppass = GMAIL_APP_PASSWORD
+chainreplyto = false
+smtpserverport = 587
