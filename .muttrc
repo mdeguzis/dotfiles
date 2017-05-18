@@ -19,7 +19,6 @@ set header_cache     = ~/.mutt/cache/headers # where to store headers
 set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
 set certificate_file = ~/.mutt/certificates  # where to store certs
 set mailcap_path     = ~/.mutt/macos/mailcap # entries for filetypes
-set tmpdir           = ~/.mutt/temp          # where to keep temp files
 set signature        = ~/.mutt/signature     # my signature file
 
 #
@@ -36,17 +35,17 @@ set quit                 # don't ask, just do!!
 #
 # Sidebar
 #
-mailboxes +Inbox
-mailboxes +Drafts
-mailboxes +Archive
+#mailboxes +Inbox
+#mailboxes +Drafts
+#mailboxes +Archive
 # set up the sidebar, default visible
-set sidebar_width=38
-set sidebar_visible=yes
+#set sidebar_width=38
+#set sidebar_visible=yes
 ## works with mutt-sidebar but not with mutt-kz!
 #set sidebar_sort = yes
 #set sidebar_shortpath = yes
 #set sidebar_folderindent = yes
-bind index,pager B sidebar-toggle-visible
+#bind index,pager B sidebar-toggle-visible
 # color of folders with new mail
 #color sidebar black black
 #color sidebar_new cyan black
@@ -108,9 +107,6 @@ set mail_check=30
 
 # keep a cache of headers for faster loading
 set header_cache=~/.mutt/hcache/
-
-# use ~/.mailcap settings to view html mail
-auto_view text/html
 
 # Reduce timeout and keepalive so Exchange CAS doesn't reap our connection
 set timeout=15
