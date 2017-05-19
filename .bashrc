@@ -29,6 +29,7 @@ export LESS="-M"
 # and, if it can't find it, will start it up and store the settings so that they'll be 
 # usable the next time you start up a shell.
 # Source: http://stackoverflow.com/a/18915067
+# See also: http://mah.everybody.org/docs/ssh
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
