@@ -33,7 +33,8 @@ set viminfo='20,\"50    	" read/write a .viminfo file, don't store more
 " Colors
 "---------------------------------------------
 
-colorscheme desert			" set the color scheme
+colorscheme desert			" set the color scheme, and set overrides aith autocmd
+autocmd ColorScheme * highlight Search cterm=NONE ctermfg=darkblue ctermbg=darkgreen 
 set hlsearch				" turn on search highlighting
 syntax on					" turn on syntax highlighting
 
