@@ -1,0 +1,113 @@
+#
+# Set config for server
+#
+set hostname="geisinger.edu"
+set connect_timeout=30
+
+#
+# Sending mail
+#
+set realname="Michael T. DeGuzis"
+set from=mtdeguzis@geisinger.edu
+set sendmail_wait = 0   # don't silently fail
+
+#
+# Paths
+#
+set alias_file       = ~/.mutt/alias         # where to store aliases
+set header_cache     = ~/.mutt/cache/headers # where to store headers
+set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
+set certificate_file = ~/.mutt/certificates  # where to store certs
+set mailcap_path     = ~/.mutt/macos/mailcap # entries for filetypes
+set signature        = ~/.mutt/signature     # my signature file
+
+#
+# Editor
+#
+set editor = "vim -c 'normal! }' -c 'redraw'"
+
+#
+# Basic options
+#
+set delete               # don't ask, just do
+set quit                 # don't ask, just do!!
+
+#
+# Sidebar
+#
+#mailboxes +Inbox
+#mailboxes +Drafts
+#mailboxes +Archive
+# set up the sidebar, default visible
+#set sidebar_width=38
+#set sidebar_visible=yes
+## works with mutt-sidebar but not with mutt-kz!
+#set sidebar_sort = yes
+#set sidebar_shortpath = yes
+#set sidebar_folderindent = yes
+#bind index,pager B sidebar-toggle-visible
+# color of folders with new mail
+#color sidebar black black
+#color sidebar_new cyan black
+# I don't need these. just for documentation purposes. See below.
+# sidebar-scroll-up
+# sidebar-scroll-down
+
+#
+# Index navigation
+#
+bind index k        previous-entry
+bind index j        next-entry
+bind index gg       first-entry
+bind index G        last-entry
+bind index <space>  collapse-thread
+bind index _ collapse-all
+
+#
+# Pager navigation
+#
+bind pager gg top
+bind pager G  bottom
+bind pager k  previous-line
+bind pager j  next-line
+bind pager \Cu half-up
+bind pager \Cd half-down
+
+#
+# Sync email
+#
+bind  index <tab> sync-mailbox
+
+#
+# Sorting
+#
+
+# Sort mail by thread
+set sort=threads
+# showing mbox list default to newest first
+set sort_browser=reverse-date
+# showing threads with youngest message last
+set sort_aux=reverse-last-date-received
+# Collapse theads by default
+folder-hook . "exec collapse-all"
+
+# Automatically log in to this mailbox at startup
+set spoolfile="imap://mtdeguzis@imap.geisinger.edu/"
+
+# Define the = shortcut, and the entry point for the folder browser (c?)
+set folder="imap://mtdeguzis@imap.geisinger.edu/"
+set record="=Sent Items"
+set postponed="=Drafts"
+
+# Automatically poll subscribed mailboxes for new mail
+set imap_check_subscribed
+
+# Reduce polling frequency to a sane level
+set mail_check=30
+
+# keep a cache of headers for faster loading
+set header_cache=~/.mutt/hcache/
+
+# Reduce timeout and keepalive so Exchange CAS doesn't reap our connection
+set timeout=15
+set imap_keepalive=30

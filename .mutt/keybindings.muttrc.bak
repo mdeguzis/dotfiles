@@ -1,0 +1,71 @@
+# Programmer Dvorak related bindings {{{
+bind index,pager 'h' next-undeleted
+bind index,pager 't' previous-undeleted
+bind index,pager 'H' next-entry
+bind index,pager 'T' previous-entry
+bind index 'k' tag-entry
+bind index 'K' tag-pattern
+
+bind pager 'k' tag-message
+bind pager 'K' toggle-quoted
+bind pager '<up>' previous-line
+bind pager '<down>' next-line
+bind pager 'gg' top
+bind pager 'G' bottom
+bind pager '{' previous-page
+bind pager '}' next-page
+macro pager \Cu "|urlview<enter>" "call urlview to open links"
+
+bind compose 'k' edit-to
+bind pager,compose,attach \ch display-toggle-weed
+bind compose,browser,attach 'h' next-entry
+bind compose,browser,attach 't' previous-entry
+
+bind browser 'k' tag-entry
+bind browser 'K' toggle-subscribed
+
+# }}}
+bind index,compose,browser 'gg' first-entry
+bind index,compose,browser 'G' last-entry
+
+macro index,pager,compose,browser,attach <ESC>a ":source ~/.muttrc\n" "reload the ~/.muttrc"
+
+# Gmail-style keyboard shortcuts
+macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+macro index,pager d "<enter-command>set trash=\"imaps://imap.googlemail.com/[GMail]/Bin\"\n <delete-message>" "Gmail delete message"
+macro index,pager gi "<change-folder>=gonzih@gmail.com/INBOX<enter>" "Go to inbox"
+macro index,pager gs "<change-folder>=gonzih@gmail.com/flagged<enter>" "Go to starred messages"
+macro index,pager gd "<change-folder>=gonzih@gmail.com/drafts<enter>" "Go to drafts"
+
+bind index,pager R group-reply
+
+# postpone email
+bind compose p postpone-message
+bind index p recall-message
+
+# index
+bind index <tab>    sync-mailbox
+bind index <space>  collapse-thread
+
+# Ctrl-R to mark all as read
+macro index \Cr "K~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+
+# Sync email
+macro index O "<sync-mailbox>.<shell-escape>offlineimap<enter>.<sync-mailbox>"           "run offlineimap to sync all mail"
+macro index o "<sync-mailbox>.<shell-escape>offlineimap -qf INBOX<enter>.<sync-mailbox>" "run offlineimap to sync inbox"
+
+# Saner copy/move dialogs
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+macro index,pager * "K*<enter>"
+
+# Sidebar Navigation ---------------------------------
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+
+# View attachments properly.
+bind attach <return> view-mailcap
+
+# UrlView
+macro pager \Cu "|urlview<enter>" "call urlview to open links"
