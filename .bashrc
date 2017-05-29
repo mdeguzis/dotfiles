@@ -52,3 +52,7 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
+
+# Debian packaging
+export DEBEMAIL="mdeguzis@gmail.com"
+export DEBFULLNAME="Michael DeGuzis"
