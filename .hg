@@ -1,0 +1,5 @@
+[ui]
+username = Michael DeGuzis <mtdeguzis@geisinger.edu>
+
+[web]
+cacerts = /etc/pki/tls/certs/geisinger-smglinux-cacert.pem
