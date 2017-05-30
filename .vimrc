@@ -33,7 +33,9 @@ set viminfo='20,\"50    	" read/write a .viminfo file, don't store more
 " Colors
 "---------------------------------------------
 
-colorscheme desert			" set the color scheme
+colorscheme desert			" set the color scheme, and set overrides aith autocmd
+autocmd ColorScheme * highlight Search cterm=NONE ctermfg=darkblue ctermbg=darkgreen 
+autocmd ColorScheme * highlight Visual cterm=NONE ctermfg=black ctermbg=cyan
 set hlsearch				" turn on search highlighting
 syntax on					" turn on syntax highlighting
 
@@ -48,7 +50,6 @@ set nowrap					" do not wrap lines
 set history=50              " keep 50 lines of command line history
 set number					" show line numbers
 set ruler               	" show the cursor position all the time
-set expandtab!				" disable tab key inserting spaces, not tab sequence
 set tabstop=4				" number of visual spaces after tab
 set shiftwidth=4            " when indenting with '>', use 4 spaces width
 set softtabstop=4   		" number of spaces in tab when editing
@@ -57,15 +58,6 @@ set softtabstop=4   		" number of spaces in tab when editing
 							" Use SHIFT, then highlight the text, then CTRL+SHIFT+{C,V}
 set clipboard=unnamedplus	" Allow copy/paste between windows and unix (visual only)
 							" Use this with the mouse in GUI windows like Putty
-"}}}
-" Commands {{{
-
-"---------------------------------------------
-" Commmands
-"---------------------------------------------
-
-" Format JSON in vim to expand out
-command! FormatJSON %!python -m json.tool
 "}}}
 " Maps {{{
 
