@@ -56,3 +56,7 @@ fi
 # Debian packaging
 export DEBEMAIL="mdeguzis@gmail.com"
 export DEBFULLNAME="Michael DeGuzis"
+
+# Use vi mode for bash shell
+# default mode: emacs
+set -o vi
