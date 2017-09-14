@@ -59,4 +59,4 @@ export DEBFULLNAME="Michael DeGuzis"
 
 # Use vi mode for bash shell
 # default mode: emacs
-set -o vi
+# set -o vi
