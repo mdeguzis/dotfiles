@@ -36,6 +36,7 @@ set viminfo='20,\"50    	" read/write a .viminfo file, don't store more
 colorscheme desert			" set the color scheme, and set overrides aith autocmd
 autocmd ColorScheme * highlight Search cterm=NONE ctermfg=darkblue ctermbg=darkgreen 
 autocmd ColorScheme * highlight Visual cterm=NONE ctermfg=black ctermbg=cyan
+autocmd BufNewFile,BufRead Jenkinsfile   set syntax=groovy
 set hlsearch				" turn on search highlighting
 syntax on					" turn on syntax highlighting
 
