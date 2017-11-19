@@ -1,0 +1,6 @@
+[ui]
+username = FNAME LNAME <name@host.com>
+
+[web]
+#cacerts = /etc/pki/tls/certs/<CERT>
+cacerts = 
