@@ -41,6 +41,7 @@ restore() {
       if session_exists "$session_name"; then
         add_window "$session_name" "$window_name" "$dir"
       else
+		echo "Found session to restore: $session_name"
         new_session "$session_name" "$window_name" "$dir" "$dimensions"
         count=$(( count + 1 ))
       fi
