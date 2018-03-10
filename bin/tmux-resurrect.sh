@@ -90,9 +90,9 @@ if [ "${task}" = 'backup' ] ;then
     for window in $(tmux list-windows -t ${session} | awk -F: '{print $1}') ;do
       for pane in $(tmux list-panes -t ${session}:${window} | awk -F: '{print $1}') ;do
         ##backup pane layout
-        if [ ${pane} -gt 0 ] ;then
-          tmux list-windows -t ${session} | awk -F'\\[layout ' '/^'${window}':/ {print $2}' | awk '{print $1}' | sed 's/\]$//' >${backup_dir}/${session}:${window}.layout
-        fi
+	    tmux list-windows -t ${session} | awk -F: '{print $2}' | awk '(NR=='${window}'){print $1}' |  sed 's/*//g;s/\-//g' > ${backup_dir}/${session}:${window}.layout
+		##backup window name
+	    tmux list-windows -t ${session} | awk -F'\\[layout ' '/^'${window}':/ {print $2}' | awk '{print $1}' | sed 's/\]$//; s/*//; s/-//' >>${backup_dir}/${session}:${window}.layout
         pane_full=${session}:${window}.${pane}
         ##figure out the editing mode so we can select text in history
         mode_keys=$(tmux show-window-options -g | awk '/^mode-keys/ {print $2}')
@@ -158,6 +158,11 @@ elif [ "${task}" = 'restore' ] ;then
 
     ##if windows had multiple panes, populate with proper number of panes
     for window in ${window_list} ;do
+	  # name window per layout
+	  # Make sure to strip and * or - symbols
+	  name=$(head -n 1 ${backup_dir}/${session}:${window}.layout)
+	  echo "Applying saved name $name to window, \"${session}:${window}\"."
+	  tmux rename-window -t ${session}:${window} "${name}"
       pane_list=$(ls ${backup_dir} | grep -v 'layout$' | awk -F\. '/^'${session}':'${window}'\./ {print $2}')
       num_panes=$(echo ${pane_list} | wc -w)
       if [ ${num_panes} -gt 1 ] ;then
@@ -174,7 +179,7 @@ elif [ "${task}" = 'restore' ] ;then
           i=$((${i}+1))
         done
         echo "Applying saved layout to panes in window, \"${session}:${window}\"."
-        layout=$(cat ${backup_dir}/${session}:${window}.layout)
+		layout=$(tail -n 1 ${backup_dir}/${session}:${window}.layout)
         tmux select-layout -t ${session}:${window} "${layout}"
         for pane in ${pane_list} ;do
           pane_full="${session}:${window}.${pane}"
