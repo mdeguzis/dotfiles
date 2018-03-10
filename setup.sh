@@ -15,6 +15,12 @@ do
 done
 
 # Add modules for saving tmux session
+# Restore steps for a specific save point:
+# make sure you start this with a "fresh" tmux instance
+#	$ cd ~/.tmux/resurrect/
+#	locate the save file you'd like to use for restore (file names have a timestamp)
+#	symlink the last file to the desired save file: $ ln -sf <file_name> last
+#	do a restore with tmux-resurrect key: prefix + Ctrl-r
 echo -e "\n==> Extra tmux setup\n"
 if [[ ! -d "${HOME}/tmux-resurrect" ]]; then
 	echo "Missing tmux-resurrect, cloning"
