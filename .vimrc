@@ -11,9 +11,18 @@
 " Main settings
 "---------------------------------------------
 
+" Exceptions
+" Fold this file differently
+:autocmd BufRead,BufNewFile $HOME/.vimrc setlocal foldmethod=marker
+:autocmd BufRead,BufNewFile $HOME/.vimrc setlocal foldenable
+:autocmd BufRead,BufNewFile $HOME/.vimrc setlocal foldlevel=0
+
 set nocompatible        	" Use Vim defaults (much better!)
 set noeb vb t_vb=			" Disable annoying system bell
-set foldmethod=marker		" fold sections with markers
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
 set bs=indent,eol,start 	" allow backspacing over everything in insert mode
 set ai						" always set autoindenting on
 
