@@ -128,6 +128,13 @@ fi
 export DEBEMAIL="mdeguzis@gmail.com"
 export DEBFULLNAME="Michael DeGuzis"
 
+# NOTE: set only in tmux.conf for now
+# Don't exit with CTRL+D (annoying with tmux) right away
+# Shell only exists after the 10th consecutive Ctrl-d
+#IGNOREEOF=3
+# Same as setting IGNOREEOF=10
+#set -o ignoreeof
+
 # Use vi mode for bash shell
 # default mode: emacs
 # set -o vi
