@@ -68,6 +68,8 @@ set softtabstop=4   		" number of spaces in tab when editing
 							" Use SHIFT, then highlight the text, then CTRL+SHIFT+{C,V}
 set clipboard=unnamedplus	" Allow copy/paste between windows and unix (visual only)
 							" Use this with the mouse in GUI windows like Putty
+set ignorecase				" Use Smartcase instead (uses case-sensitive only if a capital letter is present)
+set smartcase				" https://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
 "}}}
 " Maps {{{
 
