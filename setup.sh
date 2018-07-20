@@ -2,10 +2,14 @@
 
 scriptdir="${PWD}"
 
+# Setup dirs
+mkdir -p ${HOME}/.vim/after/ftplugin/
+
 # Copy core files into homedir
 core_files=()
 core_files+=(".bashrc")
 core_files+=(".tmux.conf")
+core_files+=(".vimrc")
 core_files+=(".vimrc")
 
 echo -e "\n==> Copying core dotfiles into ${HOME}\n"
@@ -13,6 +17,9 @@ for entry in "${core_files[@]}"
 do
 	cp -v "${entry}" "${HOME}"
 done
+
+echo -e "\n==> Copying vim ftdetect prefs into ${HOME}/.vim/ftdetect\n"
+cp -rv .vim/after/ftplugin/* ~/.vim/after/ftplugin/
 
 # Add modules for saving tmux session
 # Restore steps for a specific save point:
