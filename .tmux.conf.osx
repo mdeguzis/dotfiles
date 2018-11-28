@@ -39,6 +39,20 @@ bind-key -r C-d    resize-pane -D 5
 bind-key -r C-u    resize-pane -U 5
 bind-key , command-prompt "rename-window %%"
 
+#
+## copy/paste mode options to act more vim-like
+##
+## <PREFIX> + Escape - copy mode
+## v - highlight mode
+## y - capture string
+## q - exit copy mode
+## <PREFIX> + p - put paste text in desired location
+
+set-window-option -g mode-keys vi
+unbind [
+bind Escape copy-mode
+unbind p
+
 ######################################
 # display panes
 ######################################
