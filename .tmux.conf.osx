@@ -10,9 +10,6 @@
 # Keybindings
 ######################################
 
-# set key mode to vi
-set-window-option mode-keys vi
-
 # unbind all to start (clean bindings)
 unbind C-b
 
