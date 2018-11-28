@@ -30,10 +30,10 @@ bind-key x         kill-pane
 bind-key X         kill-window
 bind-key r         source-file ~/.tmux.conf
 bind-key R         refresh-client
-bind-key -r C-l    resize-pane -L 5
-bind-key -r C-r    resize-pane -R 5
-bind-key -r C-d    resize-pane -D 5
-bind-key -r C-u    resize-pane -U 5
+bind-key -r h      resize-pane -L 5
+bind-key -r l      resize-pane -R 5
+bind-key -r j      resize-pane -D 5
+bind-key -r k      resize-pane -U 5
 bind-key , command-prompt "rename-window %%"
 # bind pageup/down to copy-mode to avoid using scroll wheel
 # release a highlight on left-click mouse selection resets
