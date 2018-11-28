@@ -1,0 +1,82 @@
+######################################
+# Notes
+######################################
+
+# if statements:
+#	Use if-shell -b for checking if true
+#	You can* use 'if-shell "if (normal if statement)" if you escape the lines like a Makefile
+
+######################################
+# Keybindings
+######################################
+
+# unbind all to start (clean bindings)
+unbind C-b
+
+# Use backtick for prefix
+# Note: double-tap backtick key to type an actual backtick
+#set -g prefix `
+#bind-key ` send-prefix 
+
+# Traditional rebinding of prefix
+set-option -g prefix C-s
+
+# For the below, this would be <prefix> + <bind_key>
+
+bind-key |         split-window -h
+bind-key \         split-window -h
+bind-key -         split-window -v
+bind-key x         kill-pane
+bind-key X         kill-window
+bind-key r         source-file ~/.tmux.conf
+bind-key R         refresh-client
+bind-key -r C-l    resize-pane -L 5
+bind-key -r C-r    resize-pane -R 5
+bind-key -r C-d    resize-pane -D 5
+bind-key -r C-u    resize-pane -U 5
+bind-key , command-prompt "rename-window %%"
+
+######################################
+# display panes
+######################################
+
+# set the timeout for displaying pane numbers
+if-shell "if [[ "$(uname -o)" != "Android" ]]; then \
+	set display-panes-time 4000; \
+	fi"
+
+######################################
+# highlight active window
+######################################
+
+set-window-option -g window-status-current-bg colour195
+set-window-option -g window-status-current-fg colour16
+set-window-option -g window-status-current-attr bold
+#set-window-option -g window-status-current-format ' #I #W '
+
+# Don't let tmux rename panes
+set-option -g allow-rename off
+
+# starts windows at 1 not 0
+set-option -g base-index 1
+
+######################################
+# termux specific
+######################################
+
+# This assumes you have copied pbcopy/pbpaste into $PREFIX/bin from the github bin/ dir
+# clipboard
+if-shell "if [[ "$(uname -o)" = "Android" ]]; then \
+    bind-key C-y copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"; \
+  else  \
+    bind-key -t vi-copy 'v' begin-selection; \
+    bind-key -t vi-copy 'y' copy-selection; \
+  fi"
+
+######################################
+# pane border and colors
+######################################
+
+#set-option -g pane-active-border-fg yellow
+#set-option -g pane-border-fg white
+

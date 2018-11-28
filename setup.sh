@@ -2,14 +2,26 @@
 
 scriptdir="${PWD}"
 
+echo -e "\n==> OS customization\n"
+
+# setup for tmux will be different if you are on windows or os x
+read -erp "What is your primary parent OS you will be using? (windows|osx): " oschoice
+if [[ "${oschoice}" == "windows" ]]; then
+	TMUX_CONF=".tmux.conf.windows"
+elif [[ "${oschoice}" == "osx" ]]; then
+	TMUX_CONF=".tmux.conf.osx"
+else
+	echo "ERROR: Invalid choice"
+	exit 1
+fi
+
 # Setup dirs
 mkdir -p ${HOME}/.vim/after/ftplugin/
 
 # Copy core files into homedir
 core_files=()
 core_files+=(".bashrc")
-core_files+=(".tmux.conf")
-core_files+=(".vimrc")
+core_files+=("${TMUX_CONF}")
 core_files+=(".vimrc")
 
 echo -e "\n==> Copying core dotfiles into ${HOME}\n"
@@ -17,6 +29,9 @@ for entry in "${core_files[@]}"
 do
 	cp -v "${entry}" "${HOME}"
 done
+
+# Adjust tmux filename
+mv "${HOME}/${TMUX_CONF}" "${HOME}/.tmux.conf"
 
 echo -e "\n==> Copying vim ftdetect prefs into ${HOME}/.vim/ftdetect\n"
 cp -rv .vim/after/ftplugin/* ~/.vim/after/ftplugin/

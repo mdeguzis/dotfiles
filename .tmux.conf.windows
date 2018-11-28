@@ -1,0 +1,190 @@
+######################################
+# Notes
+######################################
+
+# if statements:
+#	Use if-shell -b for checking if true
+#	You can* use 'if-shell "if (normal if statement)" if you escape the lines like a Makefile
+
+######################################
+# Keybindings
+######################################
+
+# unbind all to start (clean bindings)
+unbind C-b
+
+# Use backtick for prefix
+# Note: double-tap backtick key to type an actual backtick
+#set -g prefix `
+#bind-key ` send-prefix 
+
+# Traditional rebinding of prefix
+set-option -g prefix C-s
+
+# For the below, this would be <prefix> + <bind_key>
+
+bind-key |         split-window -h
+bind-key \         split-window -h
+bind-key -         split-window -v
+bind-key x         kill-pane
+bind-key X         kill-window
+bind-key r         source-file ~/.tmux.conf
+bind-key R         refresh-client
+bind-key -r C-l    resize-pane -L 5
+bind-key -r C-r    resize-pane -R 5
+bind-key -r C-d    resize-pane -D 5
+bind-key -r C-u    resize-pane -U 5
+bind-key , command-prompt "rename-window %%"
+# bind pageup/down to copy-mode to avoid using scroll wheel
+# release a highlight on left-click mouse selection resets
+# the window position :/
+# Use CTRL+b to continue to scroll back in the buffer.
+bind -r -n Pageup copy-mode -u
+
+#
+# copy/paste mode options to act more vim-like
+#
+# <PREFIX> + Escape - copy mode
+# v - highlight mode
+# y - capture string
+# q - exit copy mode
+# <PREFIX> + p - put paste text in desired location
+
+set-window-option -g mode-keys vi
+unbind [
+bind Escape copy-mode
+unbind p
+bind p paste-buffer
+
+# Don't kill the pane with the bash shell ctrl+d without 3 presses to avoid mistakes
+# https://superuser.com/questions/479600/how-can-i-prevent-tmux-exiting-with-ctrl-d
+set-environment -g 'IGNOREEOF' 2
+
+######################################
+# display panes
+######################################
+
+# set the timeout for displaying pane numbers
+if-shell "if [[ "$(uname -o)" != "Android" ]]; then \
+	set display-panes-time 4000; \
+	fi"
+
+######################################
+# set status bar
+######################################
+
+#set-option -g status-utf8 on
+#set-option -g status-bg colour11
+#set-option -g status-fg colour8
+
+#set-option -g status-left '⣿'
+#set-option -g status-right '⡇ #[bold]❐ #S:#I#[default] ⡇ #[bold]#(whoami) ● #H#[default] '
+#set-option -g status-right '⡇ ❐ #S ⡇ ❖ #(rvm tools identifier) ⡇ #(whoami) ● #H '
+#set-option -g status-left ' #[bold]❐ #S#[default] ⡇'
+#set-option -g status-right '#[bold]#(whoami) ● #H#[default] '
+
+#set-option -g status-right-length 60
+#set-option -g status-left-length 60
+
+######################################
+# highlight active window
+######################################
+
+set-window-option -g window-status-current-bg colour195
+set-window-option -g window-status-current-fg colour16
+set-window-option -g window-status-current-attr bold
+#set-window-option -g window-status-current-format ' #I #W '
+
+# Don't let tmux rename panes
+set-option -g allow-rename off
+
+######################################
+# set window notifications
+######################################
+
+#set-option -g visual-activity on
+#set-option -g visual-content on
+#set-window-option -g monitor-activity on
+#set-window-option -g automatic-rename off
+
+######################################
+# tmux window titling for X
+######################################
+
+#set-option -g set-titles on
+#set-option -g set-titles-string '[#I] #W'
+#set-window-option -g automatic-rename on
+#set-window-option -g window-status-format ' #I #W '
+#set-window-option -g window-status-attr bold
+#set-window-option -g pane-base-index 1
+
+# starts windows at 1 not 0
+set-option -g base-index 1
+
+######################################
+# enable mouse
+######################################
+
+# better mouse movement (scroll terminal window text)
+# Version-specific commands [grumble, grumble]
+# See: http://stackoverflow.com/a/40902312
+# See: https://github.com/tmux/tmux/blob/master/CHANGES
+
+run-shell "tmux setenv -g TMUX_VERSION $(tmux -V | cut -c 6-)"
+#run-shell "echo $(tmux -V | cut -c 6-)"
+
+if-shell -b '[ "$(echo "$TMUX_VERSION < 2.1" | bc)" = 1 ]' \
+	"set -g mouse-select-pane on; set -g mode-mouse on; \
+	set -g mouse-resize-pane on; set -g mouse-select-window on"
+
+# In version 2.1 "mouse" replaced the previous 4 mouse options
+if-shell -b '[ "$(echo "$TMUX_VERSION >= 2.1" | bc)" = 1 ]' \
+	"set -g mouse on; \
+	bind -n Pagedown copy-mode -d"
+	
+# UTF8 is autodetected in 2.2 onwards, but errors if explicitly set
+# Disable annoying copy mode exit with selected text while scrolling
+# back in the tmux buffer
+if-shell -b '[ "$(echo "$TMUX_VERSION > 2.2" | bc)" = 1 ]' \
+  "set -g utf8 on; set -g status-utf8 on; set -g mouse-utf8 on; \
+  unbind -t vi-copy MouseDragEnd1Pane"
+  
+# For 2.4+
+# Disable annoying copy mode exit with selected text while scrolling
+# back in the tmux buffer
+if-shell -b '[ "$(echo "$TMUX_VERSION > 2.4" | bc)" = 1 ]' \
+  "set -g utf8 on; set -g status-utf8 on; set -g mouse-utf8 on; \
+  unbind -T copy-mode MouseDragEnd1Pane"
+
+#set-option -g mouse-select-pane on
+#set-window-option -g mode-keys vi
+# set-window-option -g monitor-activity off
+# set-window-option -g monitor-content off
+# set-option -g status-keys vi
+# set-option -g history-limit 4096
+
+######################################
+# termux specific
+######################################
+
+# This assumes you have copied pbcopy/pbpaste into $PREFIX/bin from the github bin/ dir
+# clipboard
+if-shell "if [[ "$(uname -o)" = "Android" ]]; then \
+    bind-key C-y copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"; \
+  else  \
+    bind-key -t vi-copy 'v' begin-selection; \
+    bind-key -t vi-copy 'y' copy-selection; \
+  fi"
+
+######################################
+# pane border and colors
+######################################
+
+#set-option -g pane-active-border-fg yellow
+#set-option -g pane-border-fg white
+
+# Tmux save/restore
+# REQUIRES: tmux 1.9
+#run-shell ~/tmux-resurrect/resurrect.tmux
+#run-shell ~/tmux-continuum/continuum.tmux
+#set -g status-right 'Continuum status: #{continuum_status}'
