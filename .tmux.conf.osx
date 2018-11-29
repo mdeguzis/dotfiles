@@ -30,21 +30,11 @@ bind-key x         kill-pane
 bind-key X         kill-window
 bind-key r         source-file ~/.tmux.conf
 bind-key R         refresh-client
-bind-key -r C-l    resize-pane -L 5
-bind-key -r C-r    resize-pane -R 5
-bind-key -r C-d    resize-pane -D 5
-bind-key -r C-u    resize-pane -U 5
+bind-key -r h    resize-pane -L 5
+bind-key -r l    resize-pane -R 5
+bind-key -r j    resize-pane -D 5
+bind-key -r k    resize-pane -U 5
 bind-key , command-prompt "rename-window %%"
-
-#
-## copy/paste mode options to act more vim-like
-##
-## v - highlight mode
-## y - capture string
-## q - exit copy mode
-## <PREFIX> + p - put paste text in desired location
-
-set-window-option -g mode-keys vi
 
 ######################################
 # display panes
