@@ -11,23 +11,23 @@
 " Main settings
 "---------------------------------------------
 
-set nocompatible        	" Use Vim defaults (much better!)
-set noeb vb t_vb=			" Disable annoying system bell
+set nocompatible            " Use Vim defaults (much better!)
+set noeb vb t_vb=           " Disable annoying system bell
 set foldmethod=indent   
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
-set bs=indent,eol,start 	" allow backspacing over everything in insert mode
-set ai						" always set autoindenting on
+set bs=indent,eol,start     " allow backspacing over everything in insert mode
+set ai                      " always set autoindenting on
 
-set backup					" keep a backup file and set paths
+set backup                  " keep a backup file and set paths
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
-set viminfo='20,\"50    	" read/write a .viminfo file, don't store more
-                        	" than 50 lines of registers 
+set viminfo='20,\"50        " read/write a .viminfo file, don't store more
+                            " than 50 lines of registers 
 
 "}}}
 " colors {{{
@@ -36,12 +36,12 @@ set viminfo='20,\"50    	" read/write a .viminfo file, don't store more
 " Colors
 "---------------------------------------------
 
-colorscheme desert			" set the color scheme, and set overrides aith autocmd
+colorscheme desert          " set the color scheme, and set overrides aith autocmd
 autocmd ColorScheme * highlight Search cterm=NONE ctermfg=darkblue ctermbg=darkgreen 
 autocmd ColorScheme * highlight Visual cterm=NONE ctermfg=black ctermbg=cyan
 autocmd BufNewFile,BufRead Jenkinsfile   set syntax=groovy
-set hlsearch				" turn on search highlighting
-syntax on					" turn on syntax highlighting
+set hlsearch                " turn on search highlighting
+syntax on                   " turn on syntax highlighting
 
 ""}}}
 " Editing {{{
@@ -50,20 +50,22 @@ syntax on					" turn on syntax highlighting
 " Editing
 "---------------------------------------------
 
-set nowrap					" do not wrap lines
+set nowrap                  " do not wrap lines
 set history=50              " keep 50 lines of command line history
-set number					" show line numbers
-set ruler               	" show the cursor position all the time
-set tabstop=4				" number of visual spaces after tab
-set shiftwidth=4            " when indenting with '>', use 4 spaces width
-set softtabstop=4   		" number of spaces in tab when editing
-"set mouse+=a				" Set mouse behavior to not grab line numbers                                     │
-							" Remember, this will require then holding SHIFT for normal behavior
-							" Use SHIFT, then highlight the text, then CTRL+SHIFT+{C,V}
-set clipboard=unnamedplus	" Allow copy/paste between windows and unix (visual only)
-							" Use this with the mouse in GUI windows like Putty
-set ignorecase				" Use Smartcase instead (uses case-sensitive only if a capital letter is present)
-set smartcase				" https://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
+set number                  " show line numbers
+set ruler                   " show the cursor position all the time
+set tabstop=8               " Set TAB to insert 4 spaces (PEP8)
+set softtabstop=0           " 
+set expandtab               " 
+set shiftwidth=4 smarttab   " 
+    
+"set mouse+=a               " Set mouse behavior to not grab line numbers                                     │
+                            " Remember, this will require then holding SHIFT for normal behavior
+                            " Use SHIFT, then highlight the text, then CTRL+SHIFT+{C,V}
+set clipboard=unnamedplus   " Allow copy/paste between windows and unix (visual only)
+                            " Use this with the mouse in GUI windows like Putty
+set ignorecase              " Use Smartcase instead (uses case-sensitive only if a capital letter is present)
+set smartcase               " https://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
 "}}}
 " Maps {{{
 
