@@ -54,7 +54,7 @@ set nowrap                  " do not wrap lines
 set history=50              " keep 50 lines of command line history
 set number                  " show line numbers
 set ruler                   " show the cursor position all the time
-set tabstop=8               " Set TAB to insert 4 spaces (PEP8)
+set tabstop=4               " Set TAB to insert 4 spaces (PEP8)
 set softtabstop=0           " 
 set expandtab               " 
 set shiftwidth=4 smarttab   " 
