@@ -21,6 +21,7 @@ mkdir -p ${HOME}/.vim/after/ftplugin/
 # Copy core files into homedir
 core_files=()
 core_files+=(".bashrc")
+core_files+=(".nanorc")
 core_files+=("${TMUX_CONF}")
 core_files+=(".vimrc")
 
