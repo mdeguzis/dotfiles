@@ -1,4 +1,5 @@
 # Syntax highlighting and other bits
 # ls /usr/share/nano' will show what all is available.
 include /usr/share/nano/python.nanorc
+include /usr/share/nano/java.nanorc
 include /usr/share/nano/sh.nanorc
