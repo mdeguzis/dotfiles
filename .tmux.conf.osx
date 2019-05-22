@@ -46,6 +46,15 @@ if-shell "if [[ "$(uname -o)" != "Android" ]]; then \
 	fi"
 
 ######################################
+# Window handling
+######################################
+
+# Always allow tmux to renumber windows
+# e.g. Window 10, downsies to a single digit for easier access
+# This is automatically done after any window is closed
+set-option -g renumber-windows on
+
+######################################
 # highlight active window
 ######################################
 
