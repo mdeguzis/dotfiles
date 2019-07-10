@@ -47,16 +47,17 @@ syntax on                   " turn on syntax highlighting
 " Editing {{{
 
 "---------------------------------------------
-" Editing
+" Editing defaults
 "---------------------------------------------
+"For more details on any of these see :help 'optionname' in vim (e.g. :help 'tabstop')
 
 set nowrap                  " do not wrap lines
 set history=50              " keep 50 lines of command line history
 set number                  " show line numbers
 set ruler                   " show the cursor position all the time
-set tabstop=4               " Set TAB to insert 4 spaces (PEP8)
-set softtabstop=0           " 
-set expandtab               " 
+set tabstop=4               " Set TAB to input 4 spaces
+set softtabstop=0           " Do not simulate tab key
+set expandtab               " Enable tab key to insert space
 set shiftwidth=4 smarttab   " 
     
 "set mouse+=a               " Set mouse behavior to not grab line numbers                                     │
