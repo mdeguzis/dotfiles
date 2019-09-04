@@ -118,8 +118,8 @@ set-option -g allow-rename off
 #set-window-option -g window-status-attr bold
 #set-window-option -g pane-base-index 1
 
-# starts windows at 1 not 0
-set-option -g base-index 1
+# starts windows at 0
+set-option -g base-index 0
 
 ######################################
 # enable mouse
