@@ -66,8 +66,8 @@ set-window-option -g window-status-current-attr bold
 # Don't let tmux rename panes
 set-option -g allow-rename off
 
-# starts windows at 1 not 0
-set-option -g base-index 1
+# starts windows at 0
+set-option -g base-index 0
 
 ######################################
 # termux specific
