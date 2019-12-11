@@ -17,6 +17,7 @@ fi
 
 # Setup dirs
 mkdir -p ${HOME}/.vim/after/ftplugin/
+mkdir -p ${HOME}/.vim/bundle
 
 # Copy core files into homedir
 core_files=()
@@ -36,6 +37,9 @@ mv "${HOME}/${TMUX_CONF}" "${HOME}/.tmux.conf"
 
 echo -e "\n==> Copying vim ftdetect prefs into ${HOME}/.vim/ftdetect\n"
 cp -rv .vim/after/ftplugin/* ~/.vim/after/ftplugin/
+
+echo -e "\n==> Copying vim bundle prefs into ${HOME}/.vim/ftdetect\n"
+cp -rv .vim/bundle/* ~/.vim/bundle
 
 # Add modules for saving tmux session
 # Restore steps for a specific save point:

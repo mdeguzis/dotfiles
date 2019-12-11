@@ -1,8 +1,11 @@
 " About {{{
 
-" Fold sections with za (which is mapped to <SPACE>)
+" Fold sections with za, which is mapped to <SPACE>
 " Keep larger headers inside the {{{ CODE }}} wraps
 " Remember to start a new fold section on the line after one ends
+"
+" Plugin docs
+" http://learnvimscriptthehardway.stevelosh.com/chapters/42.html
 
 "}}}
 " Main settings {{{
@@ -97,3 +100,16 @@ nnoremap <silent> <F12> :let @/=''<CR>
 nnoremap <C-c> +\"y
 
 "}}}
+
+""}}}
+" Pathogen {{{
+
+"---------------------------------------------
+" Plugins
+"---------------------------------------------
+"https://github.com/tpope/vim-pathogen
+
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
