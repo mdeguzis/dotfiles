@@ -109,7 +109,7 @@ nnoremap <C-c> +\"y
 "---------------------------------------------
 "https://github.com/tpope/vim-pathogen
 
-execute pathogen#infect()
+"execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
