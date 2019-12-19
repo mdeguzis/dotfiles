@@ -19,6 +19,7 @@ export TERM=xterm-256color
 
 alias grepc="grep --color=always"
 alias ls="ls --color=always"
+alias python="/usr/bin/python3"
 
 # Always use long prompt for less
 # http://stackoverflow.com/a/19871578
