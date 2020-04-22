@@ -18,6 +18,7 @@ export TERM=xterm-256color
 # https://misc.flogisoft.com/bash/tip_colors_and_formatting
 
 alias grepc="grep --color=always"
+alias grep="grep --color=always"
 alias ls="ls --color=always"
 alias python="/usr/bin/python3"
 
