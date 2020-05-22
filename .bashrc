@@ -57,11 +57,6 @@ export TERM=xterm-256color
 # Set an alias for grep color option
 # For 'less', pass -R to it
 alias grepc="grep --color=always"
-
-# Always use long prompt for less
-# http://stackoverflow.com/a/19871578
-export LESS="-M"
-
 alias pia-connect="sudo echo 'starting PIA'; sudo openvpn --config /etc/openvpn/client/New_Zealand.conf &"
 alias pia-disconnect="sudo killall -9 openvpn"
 

@@ -42,7 +42,7 @@ cp -rv .vim/after/ftplugin/* ~/.vim/after/ftplugin/
 echo -e "\n==> Copying vim bundle prefs into ${HOME}/.vim/ftdetect\n"
 cp -rv .vim/bundle/* ~/.vim/bundle
 
-echo -e "==> update-alternatives setup\n"
+echo -e "==> update-alternatives setup"
 # sudo update-alternatives --install <target> <name_to_lits> <actual_path> <priority>
 sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 100
 
@@ -89,3 +89,4 @@ else
 	echo "Please use bin/tmux-ressurect instead (see README.md in bin/)"
 
 fi
+
