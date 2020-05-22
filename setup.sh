@@ -1,4 +1,4 @@
-#!/bin/bash
+l;lkjasdf;kfj#!/bin/bash
 
 scriptdir="${PWD}"
 

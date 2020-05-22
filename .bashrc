@@ -24,7 +24,9 @@ alias python="/usr/bin/python3"
 
 # Always use long prompt for less
 # http://stackoverflow.com/a/19871578
-export LESS="-M"
+# R allows the ANSI escape sequences to pass through unscathed,
+# and they'll be rendered as colors in the terminal.
+export LESS="RM"
 
 # Prompt
 # "slash bracket, slash e, [COLOR_CODE], slash bracket"
