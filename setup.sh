@@ -5,10 +5,10 @@ scriptdir="${PWD}"
 echo -e "\n==> OS customization\n"
 
 # setup for tmux will be different if you are on windows or os x
-read -erp "What is your primary parent OS you will be using? (windows|osx): " oschoice
+read -erp "What is your primary parent OS you will be using? (windows|osx|linux): " oschoice
 if [[ "${oschoice}" == "windows" ]]; then
 	TMUX_CONF=".tmux.conf.windows"
-elif [[ "${oschoice}" == "osx" ]]; then
+elif [[ "${oschoice}" == "osx" || "${oschoice}" == "linux" ]]; then
 	TMUX_CONF=".tmux.conf.osx"
 else
 	echo "ERROR: Invalid choice"
@@ -22,6 +22,7 @@ mkdir -p ${HOME}/.vim/bundle
 # Copy core files into homedir
 core_files=()
 core_files+=(".bashrc")
+core_files+=(".bash_profile")
 core_files+=(".nanorc")
 core_files+=("${TMUX_CONF}")
 core_files+=(".vimrc")
@@ -40,6 +41,10 @@ cp -rv .vim/after/ftplugin/* ~/.vim/after/ftplugin/
 
 echo -e "\n==> Copying vim bundle prefs into ${HOME}/.vim/ftdetect\n"
 cp -rv .vim/bundle/* ~/.vim/bundle
+
+echo -e "==> update-alternatives setup\n"
+# sudo update-alternatives --install <target> <name_to_lits> <actual_path> <priority>
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 100
 
 # Add modules for saving tmux session
 # Restore steps for a specific save point:
