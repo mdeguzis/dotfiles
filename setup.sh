@@ -17,6 +17,8 @@ fi
 
 # Setup dirs
 mkdir -p ${HOME}/.vim/after/ftplugin/
+mkdir -p ${HOME}/.vim/after/ftdetect/
+mkdir -p ${HOME}/.vim/syntax
 mkdir -p ${HOME}/.vim/bundle
 
 # Copy core files into homedir
@@ -36,15 +38,21 @@ done
 # Adjust tmux filename
 mv "${HOME}/${TMUX_CONF}" "${HOME}/.tmux.conf"
 
-echo -e "\n==> Copying vim ftdetect prefs into ${HOME}/.vim/ftdetect\n"
+echo -e "\n==> Copying vim ftplugin prefs into ${HOME}/.vim/ftplugin\n"
 cp -rv .vim/after/ftplugin/* ~/.vim/after/ftplugin/
+
+echo -e "\n==> Copying vim ftdetect prefs into ${HOME}/.vim/ftdetect\n"
+cp -rv .vim/after/ftdetect/* ~/.vim/after/ftdetect/
+
+echo -e "\n==> Copying vim syntax prefs into ${HOME}/.vim/syntax\n"
+cp -rv .vim/syntax/* ~/.vim/syntax/
 
 echo -e "\n==> Copying vim bundle prefs into ${HOME}/.vim/ftdetect\n"
 cp -rv .vim/bundle/* ~/.vim/bundle
 
-echo -e "==> update-alternatives setup"
+#echo -e "==> update-alternatives setup"
 # sudo update-alternatives --install <target> <name_to_lits> <actual_path> <priority>
-sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 100
+#sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 100
 
 # Add modules for saving tmux session
 # Restore steps for a specific save point:
