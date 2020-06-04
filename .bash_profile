@@ -29,3 +29,5 @@ else
     start_agent;
 fi
 
+# For OS X, supporess this garbage
+export BASH_SILENCE_DEPRECATION_WARNING=1
