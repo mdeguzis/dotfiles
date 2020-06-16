@@ -28,6 +28,7 @@ core_files+=(".bash_profile")
 core_files+=(".nanorc")
 core_files+=("${TMUX_CONF}")
 core_files+=(".vimrc")
+core_files+=(".zshrc")
 
 echo -e "\n==> Copying core dotfiles into ${HOME}\n"
 for entry in "${core_files[@]}"

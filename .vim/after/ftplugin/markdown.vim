@@ -1,7 +1,10 @@
 " Vim filetype plugin
-" Language:		Markdown
-" Maintainer:		Tim Pope <vimNOSPAM@tpope.org>
-" Last Change:		2019 Dec 05
+
+set tabstop=2       "" set to 2 spaces
+set softtabstop=0   "" no tab stop 
+set expandtab       "" expand tab to spaces 
+set shiftwidth=2    "" set shift width
+set smarttab        "" alignment trickery
 
 if exists("b:did_ftplugin")
   finish
