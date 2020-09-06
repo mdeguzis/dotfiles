@@ -76,3 +76,4 @@ export DEBFULLNAME="Michael DeGuzis"
 # set -o vi
 
 alias pip="/usr/bin/pip3"
+alias upgrade="${HOME}/software/scripts/upgrade-system.sh"
