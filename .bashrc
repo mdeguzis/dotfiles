@@ -75,5 +75,8 @@ export DEBFULLNAME="Michael DeGuzis"
 # default mode: emacs
 # set -o vi
 
+alias drive="/home/mikeyd/github-repos/drive/bin/drive_linux"
 alias pip="/usr/bin/pip3"
-alias upgrade="${HOME}/software/scripts/upgrade-system.sh"
+
+# Add local binpath
+export PATH=$PATH:${HOME}/.local/bin
