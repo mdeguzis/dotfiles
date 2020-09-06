@@ -66,8 +66,14 @@ set shiftwidth=4 smarttab   "
 "set mouse+=a               " Set mouse behavior to not grab line numbers                                     │
                             " Remember, this will require then holding SHIFT for normal behavior
                             " Use SHIFT, then highlight the text, then CTRL+SHIFT+{C,V}
-set clipboard=unnamedplus   " Allow copy/paste between windows and unix (visual only)
-                            " Use this with the mouse in GUI windows like Putty
+
+" Allow copy/paste between windows and unix (visual only)
+if system('uname -s') == "Darwin\n"
+  set clipboard=unnamed "OSX
+else
+  set clipboard=unnamedplus "Linux
+endif
+
 set ignorecase              " Use Smartcase instead (uses case-sensitive only if a capital letter is present)
 set smartcase               " https://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
 "}}}
